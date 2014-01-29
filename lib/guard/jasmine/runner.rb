@@ -263,7 +263,7 @@ module Guard
 
             if result['error']
               if options[:is_cli]
-                raise 'An error occurred in the Jasmine runner'
+                raise "An error occurred in the Jasmine runner: #{result['error']}"
               else
                 notify_runtime_error(result, options)
               end

@@ -119,7 +119,7 @@ module Guard
 
           ::Guard::UI.info "Guard::Jasmine starts Unicorn spec server on port #{ port } in #{ environment } environment (coverage #{ coverage })."
 
-          self.process = ChildProcess.build('unicorn_rails', '-E', environment.to_s, '-p', port.to_s)
+          self.process = ChildProcess.build('unicorn_rails', '-E', environment.to_s, '-p', port.to_s,'-d',' -c','config/unicorn.rb')
           self.process.environment['COVERAGE'] = options[:coverage].to_s
           self.process.io.inherit! if options[:verbose]
           self.process.start

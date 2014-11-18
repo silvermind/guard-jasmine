@@ -257,6 +257,10 @@ module Guard
           json = output.read
           json = json.encode('UTF-8') if json.respond_to?(:encode)
 
+          puts "guard-jasmine runner - evaluate_response:"
+          puts "#{json.inspect}"
+          puts ""
+
           begin
             result = MultiJson.decode(json, { max_nesting: false })
             raise 'No response from Jasmine runner' if !result && options[:is_cli]
